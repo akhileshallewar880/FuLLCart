@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row align-items-center">
     <div class="col">
-      <img src="../../assets/side-image.png" alt="signin" class="" />
+      <img src="../../assets/side-image.png" alt="signin" class="py-5" />
     </div>
-    <div class="col">
+    <div class="col-4">
       <main class="mt-4">
-        <form [formGroup]="registerForm" (ngSubmit)="register()">
-          <h3 class="text-center"><span class="bi bi-cart"></span> FullCart</h3>
-          <h4 class="h3 mb-3 fw-normal text-center">Please Sign Up</h4>
+        <form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="!logIn">
+          <div class="text-center">
+            <h3 class="h2">Create an account</h3>
+            <p class="">Enter your details below</p>
+          </div>
 
           <div class="form-floating mt-2">
             <input
@@ -146,10 +148,15 @@
             >
           </div>
 
-          <button class="btn btn-primary w-100 py-2 mt-4" [disabled]="registerForm.invalid" type="submit">
-            Sign in
+          <button class="btn btn-lg btn-danger mt-3 w-100 rounded-0" [disabled]="registerForm.invalid" type="submit">
+            Create Account
           </button>
+          <p class="mt-3 text-center">
+            Already have account ? <a href="#" class="text-reset">Log in</a>
+          </p>
         </form>
+
+        <app-login *ngIf="logIn"></app-login>
       </main>
     </div>
   </div>

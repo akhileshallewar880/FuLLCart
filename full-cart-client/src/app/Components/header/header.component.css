@@ -1,0 +1,43 @@
+input, input::placeholder {
+    font: 0.5rem;
+    width: 13.75rem;
+    background: rgba(255,255,255,0.4);
+}
+
+.dropdown ul li {
+    list-style: none;
+    color: whitesmoke;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none; /* Hide dropdown content by default */
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    min-width: 200px;
+    padding-right: 1rem; /* Set minimum width of dropdown content */
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: #fff; /* Dropdown item text color */
+    padding: 10px 20px; /* Dropdown item padding */
+    display: block;
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  .dropdown-content ul li:hover {
+        color: red;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown content on hover */
+  }
+  
