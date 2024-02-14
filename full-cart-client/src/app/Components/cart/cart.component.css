@@ -1,0 +1,8 @@
+input {
+    max-width: 4rem;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing:0 25px;
+}

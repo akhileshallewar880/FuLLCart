@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AccountServiceService } from 'src/app/Services/account-service.service';
 
 @Component({
@@ -13,9 +14,9 @@ export class SignUpComponent implements OnInit{
 
   maxDate : Date = new Date();
 
-  logIn : boolean = true;
+  logIn : boolean = false;
 
-  constructor(private fb : FormBuilder, private accountService : AccountServiceService) {
+  constructor(private fb : FormBuilder, private accountService : AccountServiceService, private router : Router) {
     
   }
   
@@ -62,6 +63,7 @@ export class SignUpComponent implements OnInit{
     })
     
   }
+
 
   private getDateOnly(dob: string | undefined) {
     if(!dob) return;
