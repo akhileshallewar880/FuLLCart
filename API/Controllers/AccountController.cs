@@ -50,6 +50,8 @@ namespace API.Controllers
             user.Username = registerDto.Username.ToLower();
             user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
             user.PasswordSalt = hmac.Key;
+            user.ShoppingCart = new ShoppingCart();
+            user.Order = new Order();
 
             // Adding the user to the database
             dataContext1.Users.Add(user);
@@ -60,6 +62,7 @@ namespace API.Controllers
             // Returning UserDto with username and JWT token
             return new UserDto
             {
+                Id = user.Id,
                 Username = user.Username,
                 Token = tokenService1.CreateToken(user),
             };
@@ -99,8 +102,9 @@ namespace API.Controllers
             // Returning UserDto with username and JWT token
             return new UserDto
             {
+                Id = user.Id,
                 Username = user.Username,
-                Token = tokenService1.CreateToken(user),
+                Token = tokenService1.CreateToken(user)
             };
         }
     }

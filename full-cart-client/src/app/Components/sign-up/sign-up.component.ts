@@ -54,8 +54,7 @@ export class SignUpComponent implements OnInit{
 
     this.accountService.register(this.registerForm.value).subscribe({
       next : (resp) => {
-        console.log(resp);
-        console.log('success');
+        this.router.navigateByUrl('/')
       },
       error : (err) => {
         console.log(err);

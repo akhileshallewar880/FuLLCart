@@ -1,0 +1,26 @@
+<div class="container">
+    <main class="mt-5">
+        <div class="row">
+            <div class="col">
+                <div class="d-flex">
+                    <div class="point-head bg-danger"></div>
+                    <p class="fs-6 ms-2 text-danger">Our products</p>
+                </div>
+                <div>
+                    <p class="fs-2">Explore our products</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Use Bootstrap grid classes to arrange product cards in 4 columns -->
+        <div class="row">
+            <div class="col-md-3" *ngFor="let product of products">
+                <app-product [product]="product" ></app-product>
+            </div>
+        </div>
+
+        <div class="row py-5">
+            <button class="btn btn-lg btn-danger rounded-0" (click)="viewMore()">View More</button>
+        </div>
+    </main>
+</div>

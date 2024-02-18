@@ -26,5 +26,9 @@ namespace API.Entity
 
         public DateOnly DateOfBirth { get; set; }
 
+        public ShoppingCart ShoppingCart { get; set; } 
+
+        public Order Order {get; set; } = new Order();
+
     }
 }

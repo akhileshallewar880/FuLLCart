@@ -13,7 +13,18 @@ namespace API.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<RegisterDto, AppUser>();
-            
+            CreateMap<AppUser, CustomerDto>();
+            CreateMap<CustomerUpdateDto, AppUser>();
+            CreateMap<Product, Category>();
+            CreateMap<Product, ProductDto>();
+            CreateMap<CategoryDto, ProductDto>();
+            CreateMap<Product, ProductDto>(); // Map Product entity to ProductDto
+            CreateMap<CartItem, CartItemDto>();
+            CreateMap<Category, CategoryDto>(); // Map Category entity to CategoryDto
+            CreateMap<ShoppingCart, ShoppingCartDto>();
+            CreateMap<ShoppingCartDto, CartItemDto>();
+            CreateMap<Order, OrderDto>();
+            CreateMap<OrderItem, OrderItemDto>();
         }
     }
 }

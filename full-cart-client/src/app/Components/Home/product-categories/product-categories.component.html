@@ -1,0 +1,24 @@
+<div class="container">
+    <main class="mt-5 mb-5">
+        <div class="col">
+            <div class="row">
+                <div class="d-flex">
+                    <div class="point-head bg-danger"></div>
+                    <p class="fs-6 ms-2 text-danger">Categories</p>
+                </div>
+                <div>
+                    <p class="fs-2">Browse By Category</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row category d-flex justify-content-around nav-item">
+                    <div class="col border" *ngFor="let cat of categories" type="button" 
+                    (click)="onCategorySelect(cat)" [class.selected]="cat === selectedCategory">
+                        <span class="bi bi-{{cat.name | lowercase}} fs-1"></span>
+                        <p class="fs-5">{{cat.name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

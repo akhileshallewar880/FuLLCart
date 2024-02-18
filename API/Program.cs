@@ -1,5 +1,6 @@
 using System.Text;
 using API.Data;
+using API.Entity;
 using API.Interfaces;
 using API.Middleware;
 using API.Services;
@@ -31,7 +32,18 @@ builder.Services.AddCors();
 
 //ITokenService injection, IUserRepository injection
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
+builder.Services.AddScoped<IShopingCartRepository, ShoppingCartRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// builder.Services.AddControllers()
+//         .AddJsonOptions(options =>
+//         {
+//             options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+//         });
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -79,7 +91,7 @@ try
 {
     var context = Services.GetRequiredService<DataContext>();
     await context.Database.MigrateAsync();
-    await Seed.SeedUsers(context);
+    await SeedProducts.SeedProduct(context);
 }
 catch (Exception ex)
 {

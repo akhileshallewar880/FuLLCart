@@ -1,15 +1,7 @@
-<!-- <div class="bg-black">
-  <div class="container">
-  <p class="text-center text-sm text-white align-middle" style="height: 32px;">
-    <small class="align-middle">Summer Sales For All Swim Suits And Free Express Delivery - OFF 50%
-     <a href="#" class="text-bold text-white">Shop Now</a>
-    </small> 
-  </p>
-</div>
-</div> -->
-<nav class="navbar navbar-expand-lg border-bottom fixed-top">
+<main>
+  <nav class="navbar navbar-expand-lg border-bottom fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">FullCart</a>
+      <a class="navbar-brand" routerLink="/">FullCart</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -24,8 +16,8 @@
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/signup" *ngIf="accountService.currentUser$">Sign Up</a>
+          <li class="nav-item" *ngIf="!(accountService.currentUser$ | async)">
+            <a class="nav-link" routerLink="/login">Sign Up</a>
           </li>
         </ul>
         <div class="d-flex">
@@ -34,15 +26,20 @@
         </div>
         <div class="d-flex" *ngIf="accountService.currentUser$ | async">
           <span class="bi bi-heart ms-4 fs-4"></span>
-          <span class="bi bi-cart ms-4 fs-4"></span>
+          <span type="button" class="bi bi-cart ms-4 fs-4 position-relative">
+            <span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
+                
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </span>
           <div class="dropdown">
-            <span class="bi bi-person-circle ms-4 fs-4 dropdown-btn"></span>
+            <span class="bi bi-person-circle ms-4 fs-4 dropdown-btn nav-item"></span>
             <div class="dropdown-content">
               <ul>
-                <li><span class="bi bi-person me-4 fs-4"></span>My Account</li>
+                <li routerLink="/user/myprofile"><span class="bi bi-person me-4 fs-4"></span>My Account</li>
                 <li><span class="bi bi-bag-check me-4 fs-4"></span>My Orders</li>
                 <li><span class="bi bi-star me-4 fs-4"></span>My Reviews</li>
-                <li><span class="bi bi-box-arrow-left me-4 fs-4"></span>Logout</li>
+                <li (click)="logout()"><span class="bi bi-box-arrow-left me-4 fs-4"></span>Logout</li>
               </ul>
             </div>
           </div>          
@@ -50,3 +47,4 @@
       </div>
     </div>
   </nav>
+</main>

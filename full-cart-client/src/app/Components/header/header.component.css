@@ -4,6 +4,11 @@ input, input::placeholder {
     background: rgba(255,255,255,0.4);
 }
 
+.badge {
+  font-size: xx-small;
+  bottom: 5;
+}
+
 .dropdown ul li {
     list-style: none;
     color: whitesmoke;
@@ -40,4 +45,8 @@ input, input::placeholder {
   .dropdown:hover .dropdown-content {
     display: block; /* Show dropdown content on hover */
   }
+
+span {
+  cursor: pointer;
+}
   

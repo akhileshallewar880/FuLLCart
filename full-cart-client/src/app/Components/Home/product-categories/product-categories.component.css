@@ -1,0 +1,21 @@
+.point-head {
+    height: 25px;
+    width: 15px;
+    border-radius:3px;
+}
+
+.selected {
+    background-color: red;
+    color: whitesmoke;
+}
+
+.category .col {
+    height: 145px;
+    max-width: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin: 5px;
+}
