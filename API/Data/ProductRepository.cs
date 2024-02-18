@@ -65,6 +65,13 @@ namespace API.Data
             throw new NotImplementedException();
         }
 
+         public async Task AddProductAsync(Product product)
+    {
+        // Implement logic to add a single product to the database
+        // Example:
+        await dataContext1.Products.AddAsync(product);
+        await dataContext1.SaveChangesAsync();
+    }
         public void Update(Product product)
         {
             throw new NotImplementedException();

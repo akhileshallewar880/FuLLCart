@@ -54,7 +54,7 @@ namespace API.Controllers
 
 
         [HttpGet("category/{id}")]
-        public async Task<ActionResult<PagedList<ProductDto>>> GetProductsByCategory(int id,[FromQuery] UserParams userParams)
+        public async Task<ActionResult<PagedList<ProductDto>>> GetProductsByCategory(int id, [FromQuery] UserParams userParams)
         {
             var products = await productRepository1.GetProductsByCategoryId(id, userParams);
 
@@ -67,6 +67,21 @@ namespace API.Controllers
 
             return Ok(products);
         }
+
+     [HttpPost("add")]
+    public async Task<IActionResult> AddProduct([FromBody] ProductDto productDto, [FromQuery] int categoryId)
+    {
+        // Map ProductDto to Product entity if necessary
+        var product = mapper1.Map<Product>(productDto);
+        
+        // Set the category ID
+        product.CategoryId = categoryId;
+
+        // Add the product to the database
+        await productRepository1.AddProductAsync(product);
+
+        return Ok("Product added successfully.");
+    }
 
 
     }

@@ -14,6 +14,8 @@ namespace API.Interfaces
 
         Task<bool> SaveAllAsync();
 
+        Task AddProductAsync (Product product);
+
         Task<IEnumerable<Product>> GetAllProductsAsync();
 
         Task<Product> GetProductByIdAsync(int id);

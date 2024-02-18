@@ -24,6 +24,7 @@ import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { ErrorsInterceptor } from './Interceptors/error.interceptor';
 import { LoadingInterceptor } from './Interceptors/loading.interceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { HomeComponent } from './Components/Admin/home/home.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     CartComponent,
     MyProfileComponent,
     ProductDetailsComponent,
-    TruncatePipe
+    TruncatePipe,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
